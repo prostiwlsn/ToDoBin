@@ -42,9 +42,10 @@ button {
   color: #EEE4B1;
   cursor: pointer;
   transition: border-color 0.25s;
+  border: none;
 }
 button:hover {
-  border-color: #353541;
+  background-color: #5F374B;
 }
 button:focus,
 button:focus-visible {
