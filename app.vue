@@ -15,6 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body{
+  background-color: #EEE4B1;
+  color: #5F374B;
+}
+
 .content{
   width: 60%;
 }

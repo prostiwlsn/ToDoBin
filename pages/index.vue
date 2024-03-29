@@ -3,7 +3,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div><NewList/></div>
+  <NewList/>
 </template>
 
 <style scoped>
