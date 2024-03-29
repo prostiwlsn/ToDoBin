@@ -1,6 +1,6 @@
 <template>
   <Navbar/>
-  <NuxtPage />
+  <div style="display: flex;" class="content-center"><NuxtPage style="margin-top: 60px" class="content"/></div>
 </template>
 
 <style>
@@ -13,5 +13,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.content{
+  width: 60%;
+}
+
+@media only screen and (max-width: 1080px) {
+  .content{
+    width: 100%;
+  }
+}
+
+.content-center{
+  display: flex;
+  justify-content: center;
 }
 </style>

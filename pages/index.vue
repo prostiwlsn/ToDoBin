@@ -3,11 +3,8 @@ const route = useRoute()
 </script>
 
 <template>
-  <div style="margin-top: 100px;">
-    page content
-  </div>
+  <div><NewList/></div>
 </template>
 
 <style scoped>
-
 </style>
