@@ -1,15 +1,33 @@
 <template>
     <div style="margin-top: 60px" class="content">
-        <NewListElement/>
-        <NewListElement/>
+        <div v-for="l in list">
+            <NewListElement/>
+        </div>
+        <div>
+            <button class="create-button">Create list</button>
+        </div>
     </div>
 </template>
 
 <script setup>
-const list = ref([""])
+const list = ref([0])
+
+const elementNumber = ref(0)
+
+function addElement(l){
+    elementNumber.value++
+    list.value.push(elementNumber.value)
+}
 
 </script>
 
-<style>
-
+<style scoped>
+.create-button{
+    border-color: #8C6A5D;
+    color: #8C6A5D;
+}
+.create-button:hover {
+  background-color: #8C6A5D;
+  color: #EEE4B1;
+}
 </style>
