@@ -7,6 +7,7 @@
 
 <script setup>
 const listElement = ref("")
+const model = defineModel()
 const textarea = ref(null)
 
 const elementHeight = ref(18)
@@ -15,11 +16,13 @@ watch(listElement, (newElem, oldElem) => {
     textarea.value.style.height = '18px'
     elementHeight.value = textarea.value.scrollHeight - 4
 
-    console.log(textarea.value.scrollHeight,textarea.value.style.height, elementHeight.value)
+    //console.log(textarea.value.scrollHeight,textarea.value.style.height, elementHeight.value)
+    model.value = listElement.value
 })
 
 onMounted(() => {
     //textarea.value.focus()
+    console.log(model)
 })
 </script>
 

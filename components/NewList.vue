@@ -1,16 +1,17 @@
 <template>
     <div style="margin-top: 60px" class="content">
         <div v-for="l in list">
-            <NewListElement/>
+            <NewListElement v-model="listContent[l]"/>
         </div>
         <div>
-            <button class="create-button">Create list</button>
+            <button class="create-button" @click="console.log(listContent[0])">Create list</button>
         </div>
     </div>
 </template>
 
 <script setup>
 const list = ref([0])
+const listContent = ref([""])
 
 const elementNumber = ref(0)
 
