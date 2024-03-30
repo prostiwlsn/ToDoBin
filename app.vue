@@ -1,6 +1,6 @@
 <template>
   <Navbar/>
-  <div style="display: flex;" class="content-center"><NuxtPage style="margin-top: 60px" class="content"/></div>
+  <div style="display: flex;" class="content-center"><NuxtPage/></div>
 </template>
 
 <style>

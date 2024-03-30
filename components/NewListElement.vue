@@ -6,25 +6,16 @@
 </template>
 
 <script setup>
-//const textarea = document.querySelector('textarea');
-
 const listElement = ref("")
 const textarea = ref(null)
 
-const elementId = 1
-
-const baseHeight = 18
 const elementHeight = ref(18)
 
 watch(listElement, (newElem, oldElem) => {
-    //console.log(JSON.stringify(listElement.value))
+    textarea.value.style.height = '18px'
+    elementHeight.value = textarea.value.scrollHeight - 4
 
-    //let element = this.$refs["textarea"];
-    //element.style.height = element.scrollHeight + "px";
-
-    elementHeight.value = textarea.value.scrollHeight
-
-    console.log(textarea.value.scrollHeight,textarea.value.style.height)
+    console.log(textarea.value.scrollHeight,textarea.value.style.height, elementHeight.value)
 })
 
 onMounted(() => {
