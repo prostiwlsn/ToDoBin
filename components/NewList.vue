@@ -4,7 +4,8 @@
             <NewListElement v-model="listContent[l]"/>
         </div>
         <div>
-            <button class="create-button" @click="listContent[0]='example'">Create list</button>
+            <button class="create-button" @click="addElement(0)">Create list</button>
+            <button class="create-button" @click="removeElement(0)">Create list</button>
         </div>
     </div>
 </template>
@@ -15,9 +16,20 @@ const listContent = ref([""])
 
 const elementNumber = ref(0)
 
-function addElement(l){
+function addElement(number){
+    listContent.value.push("")
+
     elementNumber.value++
     list.value.push(elementNumber.value)
+    console.log(list.value)
+}
+
+function removeElement(number){
+    listContent.value.pop()
+
+    elementNumber.value--
+    list.value.pop()
+    console.log(list.value)
 }
 
 </script>
