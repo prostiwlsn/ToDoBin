@@ -4,7 +4,7 @@
             <NewListElement v-model="listContent[l]"/>
         </div>
         <div>
-            <button class="create-button" @click="console.log(listContent[0])">Create list</button>
+            <button class="create-button" @click="listContent[0]='example'">Create list</button>
         </div>
     </div>
 </template>

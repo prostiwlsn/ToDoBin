@@ -1,28 +1,35 @@
 <template>
     <div class="list-item">
         <h3 style="margin: 0%; padding:0%; margin-right: 3px">1.</h3>
-        <textarea placeholder="Your plans here" v-model="listElement" :style="{height: elementHeight + 'px'}" ref="textarea"></textarea>
+        <textarea placeholder="Your plans here" v-model="model" ref="textarea"></textarea>
     </div>
 </template>
 
 <script setup>
-const listElement = ref("")
+const props = defineProps(["id"])
+
+//:style="{height: elementHeight + 'px'}"
+
 const model = defineModel()
 const textarea = ref(null)
 
 const elementHeight = ref(18)
 
-watch(listElement, (newElem, oldElem) => {
+function resize(){
     textarea.value.style.height = '18px'
-    elementHeight.value = textarea.value.scrollHeight - 4
+    textarea.value.style.height = textarea.value.scrollHeight - 4 + 'px'
+    console.log(textarea.value.scrollHeight, textarea.value.style.height)
+}
 
-    //console.log(textarea.value.scrollHeight,textarea.value.style.height, elementHeight.value)
-    model.value = listElement.value
+watch(model, (newElem, oldElem) => {
+    resize()
 })
 
 onMounted(() => {
     //textarea.value.focus()
-    console.log(model)
+    resize()
+
+    model.value = ""
 })
 </script>
 
