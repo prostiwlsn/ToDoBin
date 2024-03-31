@@ -1,17 +1,18 @@
 <template>
     <div @mouseover="isAddShown=true" @mouseleave="isAddShown=false">
         <div class="list-item">
-            <h3 style="margin: 0%; padding:0%; margin-right: 3px">1.</h3>
-            <textarea placeholder="Your plans here" v-model="model" ref="textarea"></textarea>
+            <h3 style="margin: 0%; padding:0%; margin-right: 3px">{{ id+1 }}.</h3>
+            <textarea placeholder="Your plans here" v-model="model" ref="textarea" @keydown.delete="deleteElement()"></textarea>
         </div>
-        <div v-show="isAddShown" class="add-element">
+        <div v-show="isAddShown" class="add-element" @click="createElement()">
             Add
         </div>
     </div>
 </template>
 
 <script setup>
-const props = defineProps(["id"])
+const props = defineProps(["id", "value"])
+const emit = defineEmits(["create", "delete"])
 
 //:style="{height: elementHeight + 'px'}"
 
@@ -29,16 +30,25 @@ function resize(){
     //console.log(textarea.value.scrollHeight, textarea.value.style.height)
 }
 
+function createElement(){
+    //console.log('create', props.id)
+    emit('create', props.id)
+}
+
+function deleteElement(){
+    if(model.value.length == 0){
+        //console.log('delete', props.id)
+        emit('delete', props.id)
+    }
+}
+
 watch(model, (newElem, oldElem) => {
     resize()
 })
 
 onMounted(() => {
+    model.value = props.value
     resize()
-
-    //textarea.value.focus()
-
-    model.value = ""
 })
 </script>
 
