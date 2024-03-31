@@ -4,7 +4,7 @@
             <NewListElement v-model="listContent[l]" :id="l" @delete="(id) => removeElement(id)" @create="(id) => addElement(id)" :value="listContent[l]"/>
         </div>
         <div>
-            <button class="create-button" @click="createList()">Create list</button>
+            <button @click="createList()">Create list</button>
         </div>
     </div>
 </template>
@@ -57,11 +57,10 @@ function createList(){
 
 <style scoped>
 .create-button{
-    border-color: #8C6A5D;
-    color: #8C6A5D;
+    border-color: #fe6c90;
+    color: #fe6c90;
 }
 .create-button:hover {
-  background-color: #8C6A5D;
-  color: #EEE4B1;
+  background-color: #452459;
 }
 </style>

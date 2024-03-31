@@ -1,11 +1,11 @@
 <template>
     <div @mouseover="isAddShown=true" @mouseleave="isAddShown=false">
         <div class="list-item">
+            <div v-show="isAddShown" class="add-element" @click="createElement()">
+                Add
+            </div>
             <h3 style="margin: 0%; padding:0%; margin-right: 3px">{{ id+1 }}.</h3>
             <textarea placeholder="Your plans here" v-model="model" ref="textarea" @keydown.delete="deleteElement()"></textarea>
-        </div>
-        <div v-show="isAddShown" class="add-element" @click="createElement()">
-            Add
         </div>
     </div>
 </template>
@@ -72,6 +72,7 @@ textarea{
     width: 100%;
     resize: none;
     font-size: 18px;
+    color: #ef87c3;
 }
 
 textarea:focus{
@@ -80,10 +81,19 @@ textarea:focus{
 }
 
 .add-element{
-    color: #8C6A5D;
+    color: #9e6695;
     cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+    display: inline-block;
 }
 .add-element:hover{
-    color: #430A5D;
+    color: #ef87c3;
+    background-color: #70567b;
+    border-radius: 10px;
 }
 </style>

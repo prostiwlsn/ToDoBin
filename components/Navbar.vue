@@ -1,7 +1,7 @@
 <template>
     <div class="top-line">
         <div class="navbar">
-            <strong><h2 style="margin: 3px; color: #EEE4B1">ToDoBin</h2></strong>
+            <strong><h2 style="margin: 3px; color: #ef87c3">ToDoBin</h2></strong>
             <button style="margin: 3px;">New list</button>
         </div>
     </div>
@@ -22,14 +22,14 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #ef87c3;
   padding: 5px;
   width: 60%;
   height:50px
 }
 
 .top-line{
-  background-color: #5F374B;
+  background-color: #313d59;
   position: fixed;
   width: 100%;
   left: 0;
