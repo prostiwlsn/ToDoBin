@@ -38,6 +38,7 @@ function createElement(){
 function deleteElement(){
     if(model.value.length == 0){
         //console.log('delete', props.id)
+        textarea.value.blur()
         emit('delete', props.id)
     }
 }

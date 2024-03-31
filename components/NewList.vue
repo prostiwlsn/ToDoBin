@@ -31,7 +31,7 @@ function addElement(number){
 }
 
 function removeElement(number){
-    /*
+    
     console.log("remove", number)
 
     if(listContent.value.length == 1){
@@ -46,7 +46,6 @@ function removeElement(number){
 
     elementNumber.value--
     list.value.pop()
-    */
     //console.log(list.value)
 }
 
