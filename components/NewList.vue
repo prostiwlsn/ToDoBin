@@ -49,8 +49,13 @@ function removeElement(number){
     //console.log(list.value)
 }
 
-function createList(){
-    console.log(listContent.value)
+async function createList(){
+    //console.log(listContent.value)
+    const data = await $fetch('/api/list', {
+        method: 'POST',
+        body: listContent.value
+    })
+    console.log(data)
 }
 
 </script>
