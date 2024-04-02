@@ -3,6 +3,15 @@
   <div style="display: flex;" class="content-center"><NuxtPage/></div>
 </template>
 
+<script setup>
+onMounted(async () => {
+  if(localStorage.getItem('todoUserId') == null){
+    localStorage.setItem('todoUserId', crypto.randomUUID())
+  }
+  console.log(localStorage.getItem('todoUserId'))
+})
+</script>
+
 <style>
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
