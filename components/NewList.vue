@@ -4,7 +4,7 @@
             <NewListElement v-model="listContent[l]" :id="l" @delete="(id) => removeElement(id)" @create="(id) => addElement(id)" :value="listContent[l]"/>
         </div>
         <div>
-            <button @click="createList()">Create list</button>
+            <button @click="createList()" style="margin-left: 39px;">Create list</button>
         </div>
     </div>
 </template>

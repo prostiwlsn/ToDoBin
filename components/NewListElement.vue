@@ -1,7 +1,7 @@
 <template>
     <div @mouseover="isAddShown=true" @mouseleave="isAddShown=false">
         <div class="list-item">
-            <div v-show="isAddShown" class="add-element" @click="createElement()">
+            <div :class="isAddShown ? '' : 'add-element-hidden'" class="add-element" @click="createElement()" ref="addButton">
                 Add
             </div>
             <h3 style="margin: 0%; padding:0%; margin-right: 3px">{{ id+1 }}.</h3>
@@ -17,9 +17,12 @@ const emit = defineEmits(["create", "delete"])
 //:style="{height: elementHeight + 'px'}"
 
 //как вариант - сделать все это говно текстом, но оно будет textarea при клике (ИДЕЯ ХУЙНИ)
+//rgb(158, 102, 149) : rgba(158, 102, 149, 0)
 
 const model = defineModel()
 const textarea = ref(null)
+
+const addButton = ref(null)
 const isAddShown = ref(false)
 
 const elementHeight = ref(18)
@@ -50,6 +53,8 @@ watch(model, (newElem, oldElem) => {
 onMounted(() => {
     model.value = props.value
     resize()
+
+    console.log('btnwidth: ', addButton.value.clientWidth)
 })
 </script>
 
@@ -81,7 +86,7 @@ textarea:focus{
 }
 
 .add-element{
-    color: #9e6695;
+    color: rgb(158, 102, 149);
     cursor: pointer;
     padding-left: 5px;
     padding-right: 5px;
@@ -95,5 +100,8 @@ textarea:focus{
     color: #ef87c3;
     background-color: #70567b;
     border-radius: 10px;
+}
+.add-element-hidden{
+    color: rgba(158, 102, 149, 0);
 }
 </style>
