@@ -10,6 +10,8 @@
 </template>
 
 <script setup>
+const router = useRouter()
+
 const list = ref([0])
 const listContent = ref([""])
 
@@ -54,7 +56,10 @@ async function createList(){
     const data = await $fetch('/api/list', {
         method: 'POST',
         body: listContent.value
+    }).then((data) => {
+        router.push('/list/' + data.id)
     })
+    
     console.log(data)
 }
 
