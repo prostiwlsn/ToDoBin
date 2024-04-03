@@ -5,7 +5,7 @@
                 Add
             </div>
             <h3 style="margin: 0%; padding:0%; margin-right: 3px">{{ id+1 }}.</h3>
-            <textarea placeholder="Your plans here" v-model="model" ref="textarea" @keydown.delete="deleteElement()"></textarea>
+            <textarea placeholder="Your plans here" v-model="model" ref="textarea" @keydown.delete="deleteElement()" style="padding-top: 3px"></textarea>
         </div>
     </div>
 </template>
