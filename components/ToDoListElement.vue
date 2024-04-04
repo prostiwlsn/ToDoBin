@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(['listId', 'lineId', 'line'])
+const props = defineProps(['listId', 'lineId', 'line', 'done'])
 const emit = defineEmits(['check', 'uncheck'])
 
 const isDisabled = ref(false)
@@ -20,6 +20,12 @@ watch(isChecked, async (newValue, oldValue) => {
     })
 
     isDisabled.value = false
+})
+
+onMounted(async () => {
+    if(props.done.filter(d => d.lineId == props.lineId).length > 0){
+        isChecked.value = true
+    }
 })
 </script>
 

@@ -24,7 +24,7 @@ onMounted(async () => {
 <template>
     <div style="margin-top: 60px" class="content">
         <div v-for="(line, index) in content.content">
-            <ToDoListElement :line="line" :lineId="index" :listId="route.params.id"/>
+            <ToDoListElement :line="line" :lineId="index" :listId="route.params.id" :done="done" :key="done"/>
         </div>
     </div>
 </template>
