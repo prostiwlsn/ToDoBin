@@ -1,4 +1,8 @@
-# Nuxt 3 Minimal Starter
+# ToDoBin
+
+Project for saving and sharing todo lists using Nuxt and MongoDB (mongoose for nuxt)
+
+## Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
