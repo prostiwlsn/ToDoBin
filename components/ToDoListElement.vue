@@ -1,6 +1,26 @@
 <script setup>
 const props = defineProps(['listId', 'lineId', 'line'])
 const emit = defineEmits(['check', 'uncheck'])
+
+const isDisabled = ref(false)
+const isChecked = ref(false)
+
+watch(isChecked, async (newValue, oldValue) => {
+    isDisabled.value = true
+
+    console.log(newValue)
+
+    const data = await $fetch('/api/done/' + newValue, {
+        method: 'POST',
+        body: {
+            listId: props.listId,
+            lineId: props.lineId,
+            userId: localStorage.getItem('todoUserId')
+        }
+    })
+
+    isDisabled.value = false
+})
 </script>
 
 <template>
@@ -9,7 +29,7 @@ const emit = defineEmits(['check', 'uncheck'])
             <h3 style="margin: 0%; padding-right: 5px">{{ lineId }}.</h3>
             <div style="font-size: 18px;">{{ line }}</div>
         </div>
-        <input type="checkbox" class="cb-wrapper">
+        <input type="checkbox" class="cb-wrapper" :disabled="isDisabled" v-model="isChecked">
     </div>
 </template>
 

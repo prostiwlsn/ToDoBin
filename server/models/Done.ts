@@ -6,7 +6,7 @@ export const Done = defineMongooseModel('Done', {
     required: true,
   },
   lineId: {
-    type: String,
+    type: Number,
     required: true
   },
   userId: {

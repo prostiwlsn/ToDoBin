@@ -5,10 +5,19 @@ const route = useRoute()
 const content = await $fetch('/api/list/' + route.params.id, {
     method: 'get',
 })
-//v-for="line in content"
-onMounted(() => {
+
+const done = ref([])
+
+onMounted(async () => {
     console.log(route.params.id)
     console.log(content)
+
+    const doneParams = '?' + 'listId=' + route.params.id + '&' + 'userId=' + localStorage.getItem('todoUserId')
+    done.value = await $fetch('/api/done/' + doneParams, {
+        method: 'get'
+    })
+
+    console.log(done.value)
 })
 </script>
 
